@@ -73,10 +73,11 @@ columns : 사용자 수, 세션 수, 신규 방문자 수, 페이지 뷰 수
     모두 0으로 채워진 (2020년 11월 9일 ~ 2021년 1월 8일)의 일 단위 데이터
     column : 사용자 수, 세션 수, 신규 방문자 수, 페이지 뷰 수
     ```
-- info_user.csv
-- info_competition.csv
-- info_submission.csv
-- info_login.csv
+- info_user.csv (유저 정보)
+- info_login.csv (로그인 정보)
+- info_competition.csv (대회 정보)
+- info_submission.csv (코드 제출 정보)
+
 
 
 ### 2. 2021년 1월 18일 오후 1시 공개
