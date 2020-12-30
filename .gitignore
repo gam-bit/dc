@@ -131,3 +131,7 @@ dmypy.json
 
 # excel
 *.xlsx
+
+
+# 나중에 빼기
+*/README.md/
