@@ -134,4 +134,4 @@ dmypy.json
 
 
 # 나중에 빼기
-*/README.md/
+*.md/
