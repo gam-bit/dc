@@ -93,19 +93,28 @@ def dacon_rmse(true, pred):
 
 ## 💡 사용한 모델
 
-- RandomForest
+- RandomForest - bad
     
     > - 랜덤 포레스트는 변수로 input time step의 모든 값이 들어가게 되면서 시간 정보를 손실
     > - y값들은 시간이 흐르면서 전반적으로 값이 증가하고 있음. 그러나 랜덤 포레스트는 `y의 예측값 = 마지막 leaf의 y값들의 평균`이라서 그래프를 벗어나는 y값을 예측하지 못 함. → 딥러닝 사용하기로 함  
 
-- LSTM
-- GRU
-- SEQ2SEQ
-- facebook prophet
+- LSTM - good
+- GRU - bad
+- SEQ2SEQ - not bad
+- facebook prophet - good
 
 ### 선택한 모델
 - LSTM + facebook prophet 앙상블
-
+    - LSTM 설명 
+        - lstm layer 6개를 deep하게 쌓음
+        - input time step : 30일, output time step : 7일
+        - input dimension : 5 
+            - 주어진 y들 (4가지)
+            - 대회 참가자 수 (1가지)
+        - train data : 예측일로 부터 100일 전 데이터부터 가져 옴(100개)
+        - hidden size = 64, epochs = 500
+    - prophet 설명
+        - 
 
 
 ## 💡 pipline
