@@ -117,7 +117,8 @@ def dacon_rmse(true, pred):
         - 즉, 몇 일을 넣고 몇 일을 예측할지를 결정해야 함
     - 모델링
         - hyperparameter : 레이어 수, hidden_size, epochs, lr 
-- Validation
-    - 시계열 예측에서는 일반적으로 시행하는 cross-validation으로 validation을 사용하면 안 됨. time step에 맞추어서 train-test set을 split하는 `walk-forward validation`을 사용.
+- Validation 
+    - **방법1)** 시계열 예측에서는 일반적으로 시행하는 cross-validation으로 validation을 사용하면 안 됨. time step에 맞추어서 train-test set을 split하는 `walk-forward validation`을 사용.
     ![image](https://user-images.githubusercontent.com/58651942/105652357-5eca0700-5efc-11eb-91c3-79d7b19c5b9f.png)
 
+    - **방법2)** 2차_train.csv를 validation set으로 사용
