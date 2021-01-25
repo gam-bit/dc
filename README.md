@@ -8,7 +8,7 @@ https://dacon.io/competitions/official/235683/overview/
 - 내용 : 시계열 분석
 
 
-## 개요 
+## 🏷 개요 
 
 ### 주제
 과거의 데이콘 데이터를 활용한 미래의 사용자 행동 패턴을 예측
@@ -23,7 +23,7 @@ https://dacon.io/competitions/official/235683/overview/
 ※ 본 대회는 1월 29일 오후 6시에  최종  우승팀을 초청하여 온라인 발표를 진행할 예정입니다.
 
 
-## 규칙
+## 🏷 규칙
 
 ### 평가
 - 심사 기준 : `Weighted RMSE`
@@ -58,7 +58,7 @@ def dacon_rmse(true, pred):
 - 리더만이 팀원 추가와 결과물 제출 가능
 
 
-## 데이터 
+## 🏷 데이터 
 
 - 총 2차례에 걸쳐 제공 
 
@@ -91,7 +91,7 @@ def dacon_rmse(true, pred):
     column : 사용자 수, 세션 수, 신규 방문자 수, 페이지 뷰 수
     ```
 
-## 사용한 모델
+## 💡 사용한 모델
 
 - RandomForest
     
@@ -108,7 +108,7 @@ def dacon_rmse(true, pred):
 
 
 
-## pipline
+## 💡 pipline
 
 - 분석
 - 모델링(전처리 + 모델링 + 예측 시각화)
@@ -117,8 +117,28 @@ def dacon_rmse(true, pred):
         - 즉, 몇 일을 넣고 몇 일을 예측할지를 결정해야 함
     - 모델링
         - hyperparameter : 레이어 수, hidden_size, epochs, lr 
+        - 예측 시각화
+        ![image](https://user-images.githubusercontent.com/58651942/105654456-650eb200-5f01-11eb-919e-c41f1162814f.png)
 - Validation 
     - **방법1)** 시계열 예측에서는 일반적으로 시행하는 cross-validation으로 validation을 사용하면 안 됨. time step에 맞추어서 train-test set을 split하는 `walk-forward validation`을 사용.
     ![image](https://user-images.githubusercontent.com/58651942/105652357-5eca0700-5efc-11eb-91c3-79d7b19c5b9f.png)
 
     - **방법2)** 2차_train.csv를 validation set으로 사용
+
+
+## 💡 프로젝트 진행 방식 개선하기
+
+- pipeline의 흐름은 위와 같이 진행함. 해당 과정의 진행이 편리하기 위한 기본 form 생성. (.py file or .ipynb file)
+    
+    ```
+    예)
+    - [n_step]분석_분석내용.ipynb
+    - [n_step]전처리.ipynb 
+        -- 어떤 변수 사용했는지
+        -- input, output 모양
+        -- 전처리 후 데이터파일 생성 (like data_preped_n_step.csv)
+    - [n_step]모델링-모델명.ipynb 
+    - [n_step]평가.ipynb -> 모델 선택
+
+    > 위 과정을 여러 스텝 반복 + step별로 notion에 정리
+    ```
