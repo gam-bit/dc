@@ -114,10 +114,23 @@ def dacon_rmse(true, pred):
         - train data : 예측일로 부터 100일 전 데이터부터 가져 옴(100개)
         - hidden size = 64, epochs = 500
     - prophet 설명
-        - 
+        - facebook에서 만든 시계열 예측 모델
+        - train 전체 기간 데이터 사용 → submission 기간만큼 예측
+        - input dimension : 1 - 자기자신
+        - changepoint_prior_scale=0.3
+            - 유연성/변동성 조정
+            - default = 0.05
+            - 숫자가 크면 underfitting을 해결한다고 함
+        - holidays_prior_scale=20 
+            - default=10
+            - 주말여부를 디폴트 값보다 많이 반영
+        - seasonality_mode = "multiplicative"로 하려고 했으나 결과 값들의 편차가 커져서 default 값인 "additive"를 사용
+        - 결과 값 중 y_hat을 예측값으로 사용
+        - [prophet코드](https://github.com/hcworkplace/dccup2020/blob/main/DaconCup_04(facebook_prophet).ipynb)
+        
 
 
-## 💡 pipline
+## 💡 Pipeline
 
 - 분석
 - 모델링(전처리 + 모델링 + 예측 시각화)
